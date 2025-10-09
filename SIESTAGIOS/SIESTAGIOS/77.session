@@ -1,0 +1,12 @@
+window_sizes 1920 1009 307 1608 963 0
+
+diagrams
+  active  classdiagram_ref 128014 // SIESTAGIOS
+    1608 963 95 Custom 0 0
+end
+show_stereotypes
+selected classdiagram_ref 128014 // SIESTAGIOS
+open
+  classview_ref 128014 // SIESTAGIOS
+end
+end

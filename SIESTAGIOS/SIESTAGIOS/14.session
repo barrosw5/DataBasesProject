@@ -1,0 +1,26 @@
+window_sizes 1920 1111 450 1464 929 128
+
+diagrams
+  active  classdiagram_ref 128014 // SIESTAGIOS
+    1464 925 95 Custom 0 0
+end
+show_stereotypes
+selected attribute_ref 137358 // id_estabelecimento
+open
+  class_ref 128014 // Aluno
+  class_ref 128142 // Curso
+  class_ref 128270 // Turmas
+  class_ref 128398 // Empresas
+  class_ref 128526 // Estabelecimentos
+  class_ref 128654 // Responsaveis
+  class_ref 128782 // Estagios
+  class_ref 128910 // Utilizadores
+  class_ref 129038 // Formador
+  class_ref 129166 // Administrativo
+  class_ref 129294 // Transporte
+  class_ref 129422 // Produto
+  class_ref 129550 // Zona
+  class_ref 129678 // Ramo_de_atividade
+  class_ref 129806 // Estagio_Ano_Letivo
+end
+end
