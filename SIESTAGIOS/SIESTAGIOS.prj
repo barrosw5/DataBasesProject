@@ -1,7 +1,7 @@
 format 224
 "SIESTAGIOS"
-  revision 1
-  modified_by 14 "jfbal"
+  revision 2
+  modified_by 77 "Utilizador"
 
 
   
@@ -44,5 +44,19 @@ format 224
 
   mark_for_import
   
+  ncouples 13
+  key "gxmi path" value "C:/Users/Utilizador/OneDrive/Documentos/GitHub/DataBasesProject1/SIESTAGIOS/SIESTAGIOS.xmi"
+  key "gxmi no model" value "no"
+  key "gxmi gen views" value "no"
+  key "gxmi encoding" value "UTF-8"
+  key "gxmi force codec" value "no"
+  key "gxmi umlversion" value "23"
+  key "gxmi pk prefix" value "no"
+  key "gxmi vis prefix" value "no"
+  key "gxmi primitive type" value "no"
+  key "gxmi gen extensions" value "yes"
+  key "gxmi gen eclipse" value "no"
+  key "gxmi comment exporter" value "no"
+  key "gxmi linefeed" value "no"
   package_ref 128014 // SIESTAGIOS
 end
