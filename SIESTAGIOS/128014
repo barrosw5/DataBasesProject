@@ -1,6 +1,6 @@
 format 224
 "SIESTAGIOS" // SIESTAGIOS
-  revision 7
+  revision 8
   modified_by 77 "Utilizador"
   // class settings
   
@@ -111,6 +111,9 @@ format 224
 	    classrelation_ref 150733 // (alunos_estagios)
       end
 
+      classrelation 158413 // (turma_aluno)
+	relation_ref 156237 // turma_aluno
+      end
     end
 
     class 128142 "Curso"
@@ -204,6 +207,14 @@ format 224
 
       classrelation 149453 // (curso_turma)
 	relation_ref 148557 // curso_turma
+      end
+
+      classrelation 158285 // (turma_aluno)
+	relation 156237 o--- name "turma_aluno"
+	  a role_name "" multiplicity "1..*" private
+	    classrelation_ref 158285 // (turma_aluno)
+	  b role_name "" multiplicity "1" private
+	    classrelation_ref 158413 // (turma_aluno)
       end
     end
 
@@ -318,18 +329,7 @@ format 224
       end
 
       attribute 136846 "disponibilidade_estagio"
-	private explicit_type "boolean"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 136974 "numero_max_estagiarios"
-	private explicit_type "int(11)"
+	private explicit_type "bool"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -441,7 +441,7 @@ format 224
       end
 
       attribute 131086 "aceitacao_de_estagios"
-	private explicit_type "varchar(100)"
+	private explicit_type "bool"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -484,17 +484,6 @@ format 224
 	MysqlColumn
       end
 
-      attribute 137102 "media_classificacao"
-	private explicit_type "int(11)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 137358 "id_estabelecimento"
 	private explicit_type "int(11)"
 	cpp_decl ""
@@ -527,15 +516,34 @@ format 224
       end
 
       classrelation 150093 // (estabelecimento_responsaveis)
-	relation 148941 ---- name "estabelecimento_responsaveis"
+	relation 148941 o--- name "estabelecimento_responsaveis"
 	  a role_name "" multiplicity "1..*" private
 	    classrelation_ref 150093 // (estabelecimento_responsaveis)
 	  b role_name "" multiplicity "1" private
 	    classrelation_ref 150221 // (estabelecimento_responsaveis)
       end
 
-      classrelation 150989 // (estabelecimento_estagios)
+      classrelation 150989 // estabelecimento_estagios
 	relation_ref 149325 // estabelecimento_estagios
+      end
+
+      attribute 128077 "numero_max_estagiarios"
+	private explicit_type "int(11)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
+      end
+
+      classrelation 158541 // <association>
+	relation 156365 ----
+	  a role_name "" multiplicity "*" private
+	    classrelation_ref 158541 // <association>
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 158669 // <association>
       end
     end
 
@@ -630,7 +638,7 @@ format 224
 	relation_ref 148941 // estabelecimento_responsaveis
       end
 
-      classrelation 151501 // (estagio_responsavel)
+      classrelation 151501 // estagio_responsavel
 	relation_ref 149581 // estagio_responsavel
       end
     end
@@ -742,10 +750,10 @@ format 224
 	  a role_name "" multiplicity "1" private
 	    classrelation_ref 150861 // (estabelecimento_estagios)
 	  b role_name "" multiplicity "*" private
-	    classrelation_ref 150989 // (estabelecimento_estagios)
+	    classrelation_ref 150989 // estabelecimento_estagios
       end
 
-      classrelation 151245 // (estagio_formador)
+      classrelation 151245 // estagio_formador
 	relation_ref 149453 // estagio_formador
       end
 
@@ -754,12 +762,9 @@ format 224
 	  a role_name "" multiplicity "1" private
 	    classrelation_ref 151373 // (estagio_responsavel)
 	  b role_name "" multiplicity "1" private
-	    classrelation_ref 151501 // (estagio_responsavel)
+	    classrelation_ref 151501 // estagio_responsavel
       end
 
-      classrelation 151757 // <association>
-	relation_ref 149709 // <association>
-      end
     end
 
     class 128910 "Utilizadores"
@@ -816,16 +821,6 @@ format 224
 	MysqlColumn
       end
 
-      attribute 133390 "tipo_utilizador"
-	private explicit_type "varchar(100)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
     end
 
     class 129038 "Formador"
@@ -872,7 +867,7 @@ format 224
 	  a role_name "" multiplicity "*" private
 	    classrelation_ref 151117 // (estagio_formador)
 	  b role_name "" multiplicity "1..*" private
-	    classrelation_ref 151245 // (estagio_formador)
+	    classrelation_ref 151245 // estagio_formador
       end
     end
 
@@ -903,7 +898,6 @@ format 224
 	    classrelation_ref 128461 // <generalisation>
 	  b parent class_ref 128910 // Utilizadores
       end
-
     end
 
     class 129294 "Transporte"
@@ -1120,12 +1114,19 @@ format 224
 	MysqlColumn
       end
 
-      classrelation 151629 // <association>
-	relation 149709 ----
-	  a role_name "" multiplicity "*" private
-	    classrelation_ref 151629 // <association>
-	  b role_name "" multiplicity "1" private
-	    classrelation_ref 151757 // <association>
+      classrelation 158669 // <association>
+	relation_ref 156365 // <association>
+      end
+
+      attribute 128205 "media_classificacao"
+	private explicit_type "int(11)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
   end
