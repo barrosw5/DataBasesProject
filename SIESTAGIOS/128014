@@ -1,6 +1,6 @@
 format 224
 "SIESTAGIOS" // SIESTAGIOS
-  revision 8
+  revision 9
   modified_by 77 "Utilizador"
   // class settings
   
@@ -211,7 +211,7 @@ format 224
 
       classrelation 158285 // (turma_aluno)
 	relation 156237 o--- name "turma_aluno"
-	  a role_name "" multiplicity "1..*" private
+	  a role_name "" multiplicity "10..28" private
 	    classrelation_ref 158285 // (turma_aluno)
 	  b role_name "" multiplicity "1" private
 	    classrelation_ref 158413 // (turma_aluno)
@@ -764,7 +764,6 @@ format 224
 	  b role_name "" multiplicity "1" private
 	    classrelation_ref 151501 // estagio_responsavel
       end
-
     end
 
     class 128910 "Utilizadores"
@@ -820,7 +819,6 @@ format 224
 	mysql_decl ""
 	MysqlColumn
       end
-
     end
 
     class 129038 "Formador"

@@ -1,8 +1,8 @@
-window_sizes 1920 1009 307 1608 963 0
+window_sizes 1920 991 307 1607 937 0
 
 diagrams
   active  classdiagram_ref 128014 // SIESTAGIOS
-    1608 963 93 Custom 0 0
+    1607 937 93 Custom 0 0
 end
 show_stereotypes
 selected attribute_ref 128205 // media_classificacao
