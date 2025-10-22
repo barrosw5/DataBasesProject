@@ -1,6 +1,6 @@
 format 224
 "SIESTAGIOS"
-  revision 3
+  revision 4
   modified_by 77 "Utilizador"
 
 
@@ -50,7 +50,7 @@ format 224
   key "gxmi gen views" value "no"
   key "gxmi encoding" value "UTF-8"
   key "gxmi force codec" value "no"
-  key "gxmi umlversion" value "23"
+  key "gxmi umlversion" value "22"
   key "gxmi pk prefix" value "no"
   key "gxmi vis prefix" value "no"
   key "gxmi primitive type" value "no"

@@ -1,6 +1,6 @@
 format 224
 "SIESTAGIOS" // SIESTAGIOS
-  revision 9
+  revision 10
   modified_by 77 "Utilizador"
   // class settings
   
@@ -111,7 +111,7 @@ format 224
 	    classrelation_ref 150733 // (alunos_estagios)
       end
 
-      classrelation 158413 // (turma_aluno)
+      classrelation 158413 // turma_aluno
 	relation_ref 156237 // turma_aluno
       end
     end
@@ -151,9 +151,9 @@ format 224
 
       classrelation 149325 // (curso_turma)
 	relation 148557 o--- name "curso_turma"
-	  a role_name "" multiplicity "1" private
+	  a role_name "" multiplicity "*" private
 	    classrelation_ref 149325 // (curso_turma)
-	  b role_name "" multiplicity "*" private
+	  b role_name "" multiplicity "1" private
 	    classrelation_ref 149453 // (curso_turma)
       end
     end
@@ -170,6 +170,7 @@ format 224
       
       attribute 128782 "Sigla"
 	private explicit_type "varchar(100)"
+	stereotype "primary key"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -181,17 +182,6 @@ format 224
 
       attribute 128910 "Ano"
 	private explicit_type "varchar(100)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 135182 "capacidade"
-	private explicit_type "int(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -214,7 +204,7 @@ format 224
 	  a role_name "" multiplicity "10..28" private
 	    classrelation_ref 158285 // (turma_aluno)
 	  b role_name "" multiplicity "1" private
-	    classrelation_ref 158413 // (turma_aluno)
+	    classrelation_ref 158413 // turma_aluno
       end
     end
 
@@ -341,7 +331,7 @@ format 224
 
       classrelation 148301 // (empresas_ramos)
 	relation 148045 ---- name "empresas_ramos"
-	  a role_name "" multiplicity "*" private
+	  a role_name "" multiplicity "1..*" private
 	    classrelation_ref 148301 // (empresas_ramos)
 	  b role_name "" multiplicity "*" private
 	    classrelation_ref 148429 // (empresas_ramos)
@@ -451,17 +441,6 @@ format 224
 	MysqlColumn
       end
 
-      attribute 131214 "produtos"
-	private explicit_type "varchar(100)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 135438 "localidade"
 	private explicit_type "varchar(100)"
 	cpp_decl ""
@@ -475,17 +454,6 @@ format 224
 
       attribute 135566 "codigo_postal"
 	private explicit_type "varchar(100)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
-      attribute 137358 "id_estabelecimento"
-	private explicit_type "int(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -517,7 +485,7 @@ format 224
 
       classrelation 150093 // (estabelecimento_responsaveis)
 	relation 148941 o--- name "estabelecimento_responsaveis"
-	  a role_name "" multiplicity "1..*" private
+	  a role_name "" multiplicity "1" private
 	    classrelation_ref 150093 // (estabelecimento_responsaveis)
 	  b role_name "" multiplicity "1" private
 	    classrelation_ref 150221 // (estabelecimento_responsaveis)
@@ -540,10 +508,21 @@ format 224
 
       classrelation 158541 // <association>
 	relation 156365 ----
-	  a role_name "" multiplicity "*" private
+	  a role_name "" multiplicity "1" private
 	    classrelation_ref 158541 // <association>
 	  b role_name "" multiplicity "*" private
 	    classrelation_ref 158669 // <association>
+      end
+
+      attribute 134733 "email"
+	private explicit_type "varchar(100)"
+	cpp_decl ""
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+	mysql_decl ""
+	MysqlColumn
       end
     end
 
@@ -753,7 +732,7 @@ format 224
 	    classrelation_ref 150989 // estabelecimento_estagios
       end
 
-      classrelation 151245 // estagio_formador
+      classrelation 151245 // (estagio_formador)
 	relation_ref 149453 // estagio_formador
       end
 
@@ -763,6 +742,14 @@ format 224
 	    classrelation_ref 151373 // (estagio_responsavel)
 	  b role_name "" multiplicity "1" private
 	    classrelation_ref 151501 // estagio_responsavel
+      end
+
+      classrelation 165197 // <association>
+	relation 162893 ----
+	  a role_name "" multiplicity "1" private
+	    classrelation_ref 165197 // <association>
+	  b role_name "" multiplicity "*" private
+	    classrelation_ref 165325 // <association>
       end
     end
 
@@ -776,17 +763,6 @@ format 224
       explicit_switch_type ""
       mysql_decl ""
       
-      attribute 132878 "id_utilizador"
-	private explicit_type "int(11)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       attribute 133006 "nome"
 	private explicit_type "varchar(100)"
 	cpp_decl ""
@@ -833,6 +809,7 @@ format 224
       
       attribute 133518 "n_formador"
 	private explicit_type "int(11)"
+	stereotype "primary key"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -862,10 +839,10 @@ format 224
 
       classrelation 151117 // (estagio_formador)
 	relation 149453 ---- name "estagio_formador"
-	  a role_name "" multiplicity "*" private
+	  a role_name "" multiplicity "1" private
 	    classrelation_ref 151117 // (estagio_formador)
 	  b role_name "" multiplicity "1..*" private
-	    classrelation_ref 151245 // estagio_formador
+	    classrelation_ref 151245 // (estagio_formador)
       end
     end
 
@@ -881,6 +858,7 @@ format 224
       
       attribute 133774 "id_admin"
 	private explicit_type "int(11)"
+	stereotype "primary key"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -1030,17 +1008,6 @@ format 224
 	MysqlColumn
       end
 
-      attribute 137230 "transportes"
-	private explicit_type "varchar(100)"
-	cpp_decl ""
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-	mysql_decl ""
-	MysqlColumn
-      end
-
       classrelation 149709 // <association>
 	relation_ref 148685 // <association>
       end
@@ -1091,7 +1058,7 @@ format 224
       end
     end
 
-    class 129806 "Estagio_Ano_Letivo"
+    class 129806 "Ano_Letivo"
       visibility package 
       cpp_decl ""
       java_decl ""
@@ -1125,6 +1092,10 @@ format 224
 	idl_decl ""
 	mysql_decl ""
 	MysqlColumn
+      end
+
+      classrelation 165325 // <association>
+	relation_ref 162893 // <association>
       end
     end
   end
