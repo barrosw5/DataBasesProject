@@ -2,14 +2,11 @@ window_sizes 1920 991 307 1607 937 0
 
 diagrams
   active  classdiagram_ref 128014 // SIESTAGIOS
-    1607 937 93 Custom 0 0
+    1609 937 93 Custom 0 0
 end
 show_stereotypes
-selected attribute_ref 128205 // media_classificacao
 open
-  class_ref 128398 // Empresas
-  class_ref 128526 // Estabelecimentos
   class_ref 128910 // Utilizadores
-  class_ref 129806 // Estagio_Ano_Letivo
+  class_ref 129806 // Ano_Letivo
 end
 end
