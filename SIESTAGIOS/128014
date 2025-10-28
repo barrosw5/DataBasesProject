@@ -1,6 +1,6 @@
 format 224
 "SIESTAGIOS" // SIESTAGIOS
-  revision 10
+  revision 11
   modified_by 77 "Utilizador"
   // class settings
   
@@ -111,7 +111,7 @@ format 224
 	    classrelation_ref 150733 // (alunos_estagios)
       end
 
-      classrelation 158413 // turma_aluno
+      classrelation 158413 // (turma_aluno)
 	relation_ref 156237 // turma_aluno
       end
     end
@@ -139,7 +139,7 @@ format 224
       end
 
       attribute 128654 "designacao"
-	private explicit_type "varchar(100)"
+	private explicit_type "varchar(50)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -181,7 +181,7 @@ format 224
       end
 
       attribute 128910 "Ano"
-	private explicit_type "varchar(100)"
+	private explicit_type "varchar(20)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -201,10 +201,10 @@ format 224
 
       classrelation 158285 // (turma_aluno)
 	relation 156237 o--- name "turma_aluno"
-	  a role_name "" multiplicity "10..28" private
+	  a role_name "" multiplicity "*" private
 	    classrelation_ref 158285 // (turma_aluno)
 	  b role_name "" multiplicity "1" private
-	    classrelation_ref 158413 // turma_aluno
+	    classrelation_ref 158413 // (turma_aluno)
       end
     end
 
@@ -253,7 +253,7 @@ format 224
       end
 
       attribute 129422 "codigo_postal"
-	private explicit_type "varchar(100)"
+	private explicit_type "varchar(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -264,7 +264,7 @@ format 224
       end
 
       attribute 129550 "telefone"
-	private explicit_type "int(50)"
+	private explicit_type "int(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -387,7 +387,7 @@ format 224
       end
 
       attribute 130574 "telefone"
-	private explicit_type "varchar(100)"
+	private explicit_type "int(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -420,7 +420,7 @@ format 224
       end
 
       attribute 130958 "data_fundacao"
-	private explicit_type "varchar(100)"
+	private explicit_type "date"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -570,7 +570,7 @@ format 224
       end
 
       attribute 131726 "telefone_direto"
-	private explicit_type "int(100)"
+	private explicit_type "int(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -592,7 +592,7 @@ format 224
       end
 
       attribute 135694 "telemovel"
-	private explicit_type "int(100)"
+	private explicit_type "int(11)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -633,7 +633,7 @@ format 224
       mysql_decl ""
       
       attribute 131982 "data_de_inicio"
-	private explicit_type "varchar(100)"
+	private explicit_type "date"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -644,7 +644,7 @@ format 224
       end
 
       attribute 132110 "nota_dada_empresa"
-	private explicit_type "int(11)"
+	private explicit_type "int(5)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -655,7 +655,7 @@ format 224
       end
 
       attribute 135950 "data_de_fim"
-	private explicit_type "varchar(100)"
+	private explicit_type "date"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -666,7 +666,7 @@ format 224
       end
 
       attribute 136078 "nota_dada_escola"
-	private explicit_type "int(11)"
+	private explicit_type "int(5)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -677,7 +677,7 @@ format 224
       end
 
       attribute 136206 "nota_procura_estagio"
-	private explicit_type "int(11)"
+	private explicit_type "int(5)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -688,7 +688,7 @@ format 224
       end
 
       attribute 136334 "nota_relatorio_estagio"
-	private explicit_type "int(11)"
+	private explicit_type "int(5)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -699,7 +699,7 @@ format 224
       end
 
       attribute 136462 "nota_estagio_final_media"
-	private explicit_type "int(11)"
+	private explicit_type "int(5)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -710,7 +710,7 @@ format 224
       end
 
       attribute 136590 "classificacao_aluno_estagio"
-	private explicit_type "int(11)"
+	private explicit_type "int(5)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -820,7 +820,7 @@ format 224
       end
 
       attribute 133646 "disciplina"
-	private explicit_type "varchar(100)"
+	private explicit_type "varchar(50)"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -839,7 +839,7 @@ format 224
 
       classrelation 151117 // (estagio_formador)
 	relation 149453 ---- name "estagio_formador"
-	  a role_name "" multiplicity "1" private
+	  a role_name "" multiplicity "1..*" private
 	    classrelation_ref 151117 // (estagio_formador)
 	  b role_name "" multiplicity "1..*" private
 	    classrelation_ref 151245 // (estagio_formador)

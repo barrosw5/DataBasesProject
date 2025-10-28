@@ -2,63 +2,63 @@ format 224
 
 classcanvas 128014 class_ref 128014 // Aluno
   classdiagramsettings member_max_width 0 end
-  xyzwh 285.237 169.966 2000 227 71
+  xyzwh 287.237 154.306 2000 227 71
 end
 classcanvas 128142 class_ref 128142 // Curso
   classdiagramsettings member_max_width 0 end
-  xyz 530.101 346.435 2000
+  xyz 538.221 319.255 2000
 end
 classcanvas 128270 class_ref 128270 // Turmas
   classdiagramsettings member_max_width 0 end
-  xyz 621.13 176.683 2000
+  xyz 623.66 175.843 2000
 end
 classcanvas 128398 class_ref 128398 // Empresas
   classdiagramsettings member_max_width 0 end
-  xyz 1131.05 52.754 2000
+  xyz 1130.11 52.934 2000
 end
 classcanvas 128526 class_ref 128526 // Estabelecimentos
   classdiagramsettings member_max_width 0 end
-  xyz 816.65 316.342 2000
+  xyz 815.38 316.442 2000
 end
 classcanvas 128654 class_ref 128654 // Responsaveis
   classdiagramsettings member_max_width 0 end
-  xyz 560.962 734.04 2000
+  xyz 569.152 579.95 2000
 end
 classcanvas 128782 class_ref 128782 // Estagios
   classdiagramsettings member_max_width 0 end
-  xyz 291.86 358.433 2000
+  xyz 292.22 355.353 2000
 end
 classcanvas 128910 class_ref 128910 // Utilizadores
   classdiagramsettings member_max_width 0 end
-  xyz 628.497 38.8 2000
+  xyz 628.507 38.12 2000
 end
 classcanvas 129038 class_ref 129038 // Formador
   classdiagramsettings member_max_width 0 end
-  xyz 51.042 65.917 2000
+  xyz 51.122 65.117 2000
 end
 classcanvas 129166 class_ref 129166 // Administrativo
   classdiagramsettings member_max_width 0 end
-  xyz 880.033 78.057 2000
+  xyz 843.783 53.627 2000
 end
 classcanvas 129294 class_ref 129294 // Transporte
   classdiagramsettings member_max_width 0 end
-  xyz 1332.14 679.308 2000
+  xyz 1332.11 679.998 2000
 end
 classcanvas 129422 class_ref 129422 // Produto
   classdiagramsettings member_max_width 0 end
-  xyz 1332.2 505.682 2000
+  xyz 1332.93 505.632 2000
 end
 classcanvas 129550 class_ref 129550 // Zona
   classdiagramsettings member_max_width 0 end
-  xyz 1097.95 578.87 2000
+  xyz 1097.57 578.99 2000
 end
 classcanvas 129678 class_ref 129678 // Ramo_de_atividade
   classdiagramsettings member_max_width 0 end
-  xyz 1297.7 318.01 2000
+  xyz 1297.75 318.37 2000
 end
 classcanvas 129806 class_ref 129806 // Ano_Letivo
   classdiagramsettings member_max_width 0 end
-  xyz 568.21 496.16 2005
+  xyz 568.58 496.98 2005
 end
 relationcanvas 128205 relation_ref 128205 // <generalisation>
   from ref 128014 z 2001 to ref 128910
@@ -76,35 +76,35 @@ relationcanvas 129101 relation_ref 128461 // <generalisation>
   no_multiplicity_a no_multiplicity_b
 end
 relationcanvas 129485 relation_ref 148045 // empresas_ramos
-  from ref 128398 z 2001 label "empresas_ramos" italic max_width 255 xyz 1230.5 260.5 2001 to ref 129678
+  from ref 128398 z 2001 label "empresas_ramos" italic max_width 255 xyz 1229.5 260 2001 to ref 129678
   no_role_a no_role_b
-  multiplicity_a_pos 1318 302 3000 multiplicity_b_pos 1306 262 3000
+  multiplicity_a_pos 1315 302 3000 multiplicity_b_pos 1280 232 3000
 end
 relationcanvas 129613 relation_ref 148173 // empresas_estabelecimentos
   decenter_begin 35
-  from ref 128398 z 2001 label "empresas_estabelecimentos" italic max_width 255 xyz 981 270.5 2001 to ref 128526
+  from ref 128398 z 2001 label "empresas_estabelecimentos" italic max_width 255 xyz 952 247 2001 to ref 128526
   no_role_a no_role_b
-  multiplicity_a_pos 1035 342 3000 multiplicity_b_pos 1116 253 3000
+  multiplicity_a_pos 998 341 3000 multiplicity_b_pos 1122 224 3000
 end
 relationcanvas 129741 relation_ref 148301 // estabelecimentos_produtos
-  from ref 128526 z 2001 label "estabelecimentos_produtos" italic max_width 255 xyz 1093.5 461.5 2001 to ref 129422
+  from ref 128526 z 2001 label "estabelecimentos_produtos" italic max_width 255 xyz 1125.5 451 2001 to ref 129422
   no_role_a no_role_b
-  multiplicity_a_pos 1313 533 3000 multiplicity_b_pos 1033 464 3000
+  multiplicity_a_pos 1314 527 3000 multiplicity_b_pos 998 442 3000
 end
 relationcanvas 130125 relation_ref 148557 // curso_turma
-  from ref 128142 z 2001 label "curso_turma" italic max_width 255 xyz 651 286 2001 to ref 128270
+  from ref 128142 z 2001 label "curso_turma" italic max_width 255 xyz 684 269 2001 to ref 128270
   no_role_a no_role_b
-  multiplicity_a_pos 701 249 3000 multiplicity_b_pos 654 328 3000
+  multiplicity_a_pos 685 238 3000 multiplicity_b_pos 644 303 3000
 end
 relationcanvas 130381 relation_ref 148813 // estabelecimento_zona
-  from ref 128526 z 2001 label "estabelecimento_zona" italic max_width 255 xyz 999.5 514.5 2001 to ref 129550
+  from ref 128526 z 2001 label "estabelecimento_zona" italic max_width 255 xyz 1075.5 528 2001 to ref 129550
   no_role_a no_role_b
-  multiplicity_a_pos 1107 597 3000 multiplicity_b_pos 1033 523 3000
+  multiplicity_a_pos 1125 561 3000 multiplicity_b_pos 998 492 3000
 end
 relationcanvas 130509 relation_ref 148941 // estabelecimento_responsaveis
-  from ref 128526 z 2001 label "estabelecimento_responsaveis" italic max_width 255 xyz 612.5 577 2001 to ref 128654
+  from ref 128526 z 2001 label "estabelecimento_responsaveis" italic max_width 255 xyz 759 550 2001 to ref 128654
   no_role_a no_role_b
-  multiplicity_a_pos 681 722 3000 multiplicity_b_pos 818 542 3000
+  multiplicity_a_pos 718 580 3000 multiplicity_b_pos 800 485 3000
 end
 relationcanvas 130637 relation_ref 149069 // zonas_transportes
   from ref 129294 z 2001 label "zonas_transportes" italic max_width 255 xyz 1412 643 2001 to ref 129550
@@ -112,39 +112,41 @@ relationcanvas 130637 relation_ref 149069 // zonas_transportes
   multiplicity_a_pos 1271 663 3000 multiplicity_b_pos 1318 693 3000
 end
 relationcanvas 130765 relation_ref 149197 // alunos_estagios
-  from ref 128014 z 2001 label "alunos_estagios" italic max_width 255 xyz 344 285.5 2001 to ref 128782
+  from ref 128014 z 2001 label "alunos_estagios" italic max_width 255 xyz 395.5 283.5 2001 to ref 128782
   no_role_a no_role_b
-  multiplicity_a_pos 382 346 3000 multiplicity_b_pos 381 246 3000
+  multiplicity_a_pos 369 341 3000 multiplicity_b_pos 380 229 3000
 end
 relationcanvas 130893 relation_ref 149325 // estabelecimento_estagios
-  from ref 128782 z 2001 label "estabelecimento_estagios" italic max_width 255 xyz 582 408.5 2001 to ref 128526
+  from ref 128782 z 2001 label "estabelecimento_estagios" italic max_width 255 xyz 579.5 403.5 2001 to ref 128526
   no_role_a no_role_b
-  multiplicity_a_pos 795 441 3000 multiplicity_b_pos 522 449 3000
+  multiplicity_a_pos 800 422 3000 multiplicity_b_pos 481 433 3000
 end
 relationcanvas 131021 relation_ref 149453 // estagio_formador
-  from ref 129038 z 2001 label "estagio_formador" italic max_width 255 xyz 215 228.5 2001 to ref 128782
+  from ref 129038 z 2001 label "estagio_formador" italic max_width 255 xyz 154 223 2001 to ref 128782
   no_role_a no_role_b
-  multiplicity_a_pos 325 347 3000 multiplicity_b_pos 160 138 3000
+  multiplicity_a_pos 301 341 3000 multiplicity_b_pos 148 129 3000
 end
 relationcanvas 131149 relation_ref 149581 // estagio_responsavel
-  from ref 128782 z 2001 label "estagio_responsavel" italic max_width 255 xyz 459 606.5 2001 to ref 128654
+  from ref 128782 z 2001 to point 512 545
+  line 131789 z 2001 to point 527 560
+  line 131917 z 2001 label "estagio_responsavel" italic max_width 255 xyz 408.5 554.5 2001 to ref 128654
   no_role_a no_role_b
-  multiplicity_a_pos 574 722 3000 multiplicity_b_pos 440 533 3000
+  multiplicity_a_pos 553 605 3000 multiplicity_b_pos 473 516 3000
 end
 relationcanvas 131405 relation_ref 156237 // turma_aluno
-  from ref 128270 z 2001 label "turma_aluno" italic max_width 255 xyz 516.5 186.5 2001 to ref 128014
+  from ref 128270 z 2001 label "turma_aluno" italic max_width 255 xyz 518.5 178 2001 to ref 128014
   no_role_a no_role_b
-  multiplicity_a_pos 519 212 3000 multiplicity_b_pos 602 214 3000
+  multiplicity_a_pos 524 199 3000 multiplicity_b_pos 606 205 3000
 end
 relationcanvas 131533 relation_ref 156365 // <association>
   from ref 128526 z 2006 to ref 129806
   no_role_a no_role_b
-  multiplicity_a_pos 745 503 3000 multiplicity_b_pos 795 474 3000
+  multiplicity_a_pos 713 498 3000 multiplicity_b_pos 799 450 3000
 end
 relationcanvas 131661 relation_ref 162893 // <association>
   from ref 128782 z 2006 to ref 129806
   no_role_a no_role_b
-  multiplicity_a_pos 550 510 3000 multiplicity_b_pos 522 492 3000
+  multiplicity_a_pos 553 507 3000 multiplicity_b_pos 481 470 3000
 end
 preferred_whz 1464 925 0.97
 end

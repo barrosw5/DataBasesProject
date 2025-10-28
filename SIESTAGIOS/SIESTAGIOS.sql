@@ -1,6 +1,7 @@
 drop table if exists alunos_estagios ;
 drop table if exists empresas_ramos ;
 drop table if exists estabelecimentos_produtos ;
+drop table if exists estagio_formador ;
 drop table if exists zonas_transportes ;
 drop table if exists Aluno ;
 drop table if exists Curso ;
@@ -43,6 +44,14 @@ create table estabelecimentos_produtos
    constraint PK_estabelecimentos_produtos primary key (Estabelecimentos_Empresas_n_de_contribuinte_, Estabelecimentos_Estabelecimentos_ID_, Produto_Produto_ID_)
 );
  
+create table estagio_formador
+(
+   Estagios_Estagios_ID_   integer   not null,
+   Formador_n_formador_   int(11)   not null,
+ 
+   constraint PK_estagio_formador primary key (Estagios_Estagios_ID_, Formador_n_formador_)
+);
+ 
 create table zonas_transportes
 (
    Transporte_Transporte_ID_   integer   not null,
@@ -64,7 +73,7 @@ create table Aluno
 create table Curso
 (
    codigo   varchar(100)   not null,
-   designacao   varchar(100)   null,
+   designacao   varchar(50)   null,
  
    constraint PK_Curso primary key (codigo)
 );
@@ -73,7 +82,7 @@ create table Turmas
 (
    Curso_codigo   varchar(100)   not null,
    Sigla   varchar(100)   not null,
-   Ano   varchar(100)   null,
+   Ano   varchar(20)   null,
  
    constraint PK_Turmas primary key (Sigla)
 );
@@ -83,8 +92,8 @@ create table Empresas
    n_de_contribuinte   int(50)   not null,
    morada   varchar(100)   null,
    localidade   varchar(100)   null,
-   codigo_postal   varchar(100)   null,
-   telefone   int(50)   null,
+   codigo_postal   varchar(11)   null,
+   telefone   int(11)   null,
    email   varchar(100)   null,
    website   varchar(100)   null,
    observacoes   varchar(100)   null,
@@ -103,10 +112,10 @@ create table Estabelecimentos
    Estabelecimentos_ID   integer   not null,
    nome_comercial   varchar(100)   null,
    morada   varchar(100)   null,
-   telefone   varchar(100)   null,
+   telefone   int(11)   null,
    foto   integer   null,
    horario   varchar(100)   null,
-   data_fundacao   varchar(100)   null,
+   data_fundacao   date   null,
    aceitacao_de_estagios   Boolean   null,
    localidade   varchar(100)   null,
    codigo_postal   varchar(100)   null,
@@ -125,9 +134,9 @@ create table Responsaveis
    nome   varchar(100)   null,
    titulo   varchar(100)   null,
    cargo   varchar(100)   null,
-   telefone_direto   int(100)   null,
+   telefone_direto   int(11)   null,
    observacoes   varchar(100)   null,
-   telemovel   int(100)   null,
+   telemovel   int(11)   null,
    email   varchar(100)   null,
  
    constraint PK_Responsaveis primary key (Responsaveis_ID)
@@ -140,14 +149,14 @@ create table Estagios
    Responsaveis_Responsaveis_ID   integer   not null,
    Ano_Letivo_Ano_Letivo_ID   integer   not null,
    Estagios_ID   integer   not null,
-   data_de_inicio   varchar(100)   null,
-   nota_dada_empresa   int(11)   null,
-   data_de_fim   varchar(100)   null,
-   nota_dada_escola   int(11)   null,
-   nota_procura_estagio   int(11)   null,
-   nota_relatorio_estagio   int(11)   null,
-   nota_estagio_final_media   int(11)   null,
-   classificacao_aluno_estagio   int(11)   null,
+   data_de_inicio   date   null,
+   nota_dada_empresa   int(5)   null,
+   data_de_fim   date   null,
+   nota_dada_escola   int(5)   null,
+   nota_procura_estagio   int(5)   null,
+   nota_relatorio_estagio   int(5)   null,
+   nota_estagio_final_media   int(5)   null,
+   classificacao_aluno_estagio   int(5)   null,
  
    constraint PK_Estagios primary key (Estagios_ID)
 );
@@ -164,10 +173,9 @@ create table Utilizadores
  
 create table Formador
 (
-   Estagios_Estagios_ID   integer   not null,
    Utilizadores_Utilizadores_ID   integer   not null,
    n_formador   int(11)   not null,
-   disciplina   varchar(100)   null,
+   disciplina   varchar(50)   null,
  
    constraint PK_Formador primary key (n_formador)
 );
@@ -266,6 +274,19 @@ alter table estabelecimentos_produtos
    on update cascade
 ;
  
+alter table estagio_formador
+   add constraint FK_Estagios_estagio_formador_Formador_ foreign key (Estagios_Estagios_ID_)
+   references Estagios(Estagios_ID)
+   on delete cascade
+   on update cascade
+; 
+alter table estagio_formador
+   add constraint FK_Formador_estagio_formador_Estagios_ foreign key (Formador_n_formador_)
+   references Formador(n_formador)
+   on delete cascade
+   on update cascade
+;
+ 
 alter table zonas_transportes
    add constraint FK_Transporte_zonas_transportes_Zona_ foreign key (Transporte_Transporte_ID_)
    references Transporte(Transporte_ID)
@@ -281,6 +302,12 @@ alter table zonas_transportes
  
 alter table Aluno
    add constraint FK_Aluno_aluno_turma_Turmas foreign key (Turmas_Sigla)
+   references Turmas(Sigla)
+   on delete restrict
+   on update cascade
+; 
+alter table Aluno
+   add constraint FK_Aluno_turma_aluno_Turmas foreign key (Turmas_Sigla)
    references Turmas(Sigla)
    on delete restrict
    on update cascade
@@ -359,12 +386,6 @@ alter table Estagios
 ;
  
  
-alter table Formador
-   add constraint FK_Formador_estagio_formador_Estagios foreign key (Estagios_Estagios_ID)
-   references Estagios(Estagios_ID)
-   on delete restrict
-   on update cascade
-; 
 alter table Formador
    add constraint FK_Formador_Utilizadores foreign key (Utilizadores_Utilizadores_ID)
    references Utilizadores(Utilizadores_ID)
