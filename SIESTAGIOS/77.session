@@ -6,7 +6,7 @@ diagrams
 end
 show_stereotypes
 selected 
-  package_ref 129 // SIESTAGIOS
+package_ref 129 // SIESTAGIOS
 open
   class_ref 128014 // Aluno
   class_ref 128270 // Turmas
