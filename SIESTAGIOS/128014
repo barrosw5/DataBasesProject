@@ -1,6 +1,6 @@
 format 224
 "SIESTAGIOS" // SIESTAGIOS
-  revision 11
+  revision 12
   modified_by 77 "Utilizador"
   // class settings
   
@@ -111,7 +111,7 @@ format 224
 	    classrelation_ref 150733 // (alunos_estagios)
       end
 
-      classrelation 158413 // (turma_aluno)
+      classrelation 158413 // turma_aluno
 	relation_ref 156237 // turma_aluno
       end
     end
@@ -204,7 +204,7 @@ format 224
 	  a role_name "" multiplicity "*" private
 	    classrelation_ref 158285 // (turma_aluno)
 	  b role_name "" multiplicity "1" private
-	    classrelation_ref 158413 // (turma_aluno)
+	    classrelation_ref 158413 // turma_aluno
       end
     end
 
@@ -398,7 +398,7 @@ format 224
       end
 
       attribute 130702 "foto"
-	private explicit_type ""
+	private explicit_type "blob"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
@@ -732,7 +732,7 @@ format 224
 	    classrelation_ref 150989 // estabelecimento_estagios
       end
 
-      classrelation 151245 // (estagio_formador)
+      classrelation 151245 // estagio_formador
 	relation_ref 149453 // estagio_formador
       end
 
@@ -842,7 +842,7 @@ format 224
 	  a role_name "" multiplicity "1..*" private
 	    classrelation_ref 151117 // (estagio_formador)
 	  b role_name "" multiplicity "1..*" private
-	    classrelation_ref 151245 // (estagio_formador)
+	    classrelation_ref 151245 // estagio_formador
       end
     end
 
@@ -998,7 +998,7 @@ format 224
       end
 
       attribute 134798 "mapa"
-	private explicit_type ""
+	private explicit_type "blob"
 	cpp_decl ""
 	java_decl ""
 	php_decl ""
