@@ -2,10 +2,14 @@ window_sizes 1920 991 307 1607 937 0
 
 diagrams
   active  classdiagram_ref 128014 // SIESTAGIOS
-    1609 937 93 Custom 0 0
+    1607 937 93 Custom 0 0
 end
 show_stereotypes
+selected 
+package_ref 129 // SIESTAGIOS
 open
+  class_ref 128014 // Aluno
+  class_ref 128270 // Turmas
   class_ref 128910 // Utilizadores
   class_ref 129806 // Ano_Letivo
 end
