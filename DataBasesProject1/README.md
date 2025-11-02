@@ -12,6 +12,5 @@ Este projeto consiste na criação de uma Base de Daados para um sistema de info
 
 # Comentários para ter em atenção:
 
-- a versão v3? não está correta mas está mais correta que a v2 acho eu
 - Trabalhar com a o ficheiro que nã oé zip que é o atual e quando estiver num bom ponto transformar em zip e guardar com o nome da versão para backup
 - NÃO ELIMINAR BACKUPS: são guardados na pasta de zip
