@@ -14,12 +14,12 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 ### 1. Automatismos (SQL)
 *Triggers (T), Stored Procedures (P) e Funções (F)*
 
-- [ ] **T1:** Validar Classificação do Estagiário (1 a 5).
-- [ ] **T2:** Validar se `data_inicio` < `data_fim`.
-- [ ] **P1:** Registar estágio (verificar existências: aluno, estabelecimento, formador).
-- [ ] **P2:** Listar estágios que iniciam em X dias.
-- [ ] **F1:** Função média classificações de um estabelecimento por ano letivo.
-- [ ] **F2:** Função média ponderada da nota final do estágio.
+- [x] **T1:** Validar Classificação do Estagiário (1 a 5).
+- [x] **T2:** Validar se `data_inicio` < `data_fim`.
+- [x] **P1:** Registar estágio (verificar existências: aluno, estabelecimento, formador).
+- [x] **P2:** Listar estágios que iniciam em X dias.
+- [x] **F1:** Função média classificações de um estabelecimento por ano letivo.
+- [x] **F2:** Função média ponderada da nota final do estágio.
 
 ### 2. Pesquisa de Dados (SQL)
 *Queries (Q) e Views (V)*
@@ -58,3 +58,7 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 - **Backups:** Trabalhar com o ficheiro atual e transformar em zip com o nome da versão regularmente.
 - **NÃO ELIMINAR BACKUPS:** Guardar sempre na pasta de arquivo.
 - **Nota Mínima:** A média global (P1 + P2) tem de ser >= 8 valores.
+
+# Cenas a fazer no final:
+
+- **1. Automatismos:** Rever todos os pontos;
