@@ -54,4 +54,7 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 
 # Comentários para ter em atenção:
 
-- **Base de Dados:** Usar estritamente o modelo
+- **Base de Dados:** Usar estritamente o modelo fornecido pelos professores.
+- **Backups:** Trabalhar com o ficheiro atual e transformar em zip com o nome da versão regularmente.
+- **NÃO ELIMINAR BACKUPS:** Guardar sempre na pasta de arquivo.
+- **Nota Mínima:** A média global (P1 + P2) tem de ser >= 8 valores.
