@@ -24,14 +24,14 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 ### 2. Pesquisa de Dados (SQL)
 *Queries (Q) e Views (V)*
 
-- [ ] **Q1:** Formadores e total de estágios supervisionados (>1).
-- [ ] **Q2:** Empresas e média de notas atribuídas (>=14).
-- [ ] **Q3:** Empresas e total de produtos comercializados (pelo menos 1).
-- [ ] **Q4:** Empresas e total de estágios (pelo menos 1).
-- [ ] **Q5:** Cursos com nº turmas superior à média geral.
-- [ ] **Q6:** Formadores "acima da média" (comparação individual vs global).
-- [ ] **V1:** View detalhes dos estágios por formador e médias.
-- [ ] **V2:** View média notas finais por empresa e curso.
+- [x] **Q1:** Formadores e total de estágios supervisionados (>1).
+- [x] **Q2:** Empresas e média de notas atribuídas (>=14).
+- [x] **Q3:** Empresas e total de produtos comercializados (pelo menos 1).
+- [x] **Q4:** Empresas e total de estágios (pelo menos 1).
+- [x] **Q5:** Cursos com nº turmas superior à média geral.
+- [x] **Q6:** Formadores "acima da média" (comparação individual vs global).
+- [x] **V1:** View detalhes dos estágios por formador e médias.
+- [x] **V2:** View média notas finais por empresa e curso.
 
 ### 3. Sistema Web-Based (PHP/HTML)
 *Três portais distintos*
@@ -62,3 +62,4 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 # Cenas a fazer no final:
 
 - **1. Automatismos:** Rever todos os pontos;
+- **2. Comentarios:** Rever cometários nos códigos sql para não parecer tão AI
