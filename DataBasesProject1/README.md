@@ -1,16 +1,14 @@
 # DataBasesProject1
-Parte 1 do projeto de bases de dados
+Part 1 of the Database Project
 
-Este projeto consiste na criação de uma Base de Dados para um sistema de informação para a gestão de estágios numa escola profissional. 
+This project consists of creating a Database for an information system to manage internships in a vocational school.
 
-
-# Link para o relatorio 
+# Report Links
 
 - https://docs.google.com/document/d/11lKteqs4KQApIBgSI5BWsyvQtRjzF-xmQMxKZz7N6Qo/edit?usp=sharing
 - https://docs.google.com/spreadsheets/d/115PtKO4yCNMO396hpGRM8258NhC4-iZBUreR8U4BHdE/edit?usp=sharing
 
+# Important Notes
 
-# Comentários para ter em atenção:
-
-- Trabalhar com a o ficheiro que nã oé zip que é o atual e quando estiver num bom ponto transformar em zip e guardar com o nome da versão para backup
-- NÃO ELIMINAR BACKUPS: são guardados na pasta de zip
+- Always work with the non-zipped file, which is the current version, and when it reaches a stable point, compress it into a zip file and save it with the version name as a backup.
+- **DO NOT DELETE BACKUPS:** They must always be kept in the zip/archive folder.
