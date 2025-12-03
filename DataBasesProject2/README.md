@@ -36,14 +36,14 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 ### 3. Sistema Web-Based (PHP/HTML)
 *Três portais distintos*
 
-- [ ] **Portal Administrador:**
-    - [ ] Gerir Estágios (Registar, Editar, Apagar).
-    - [ ] Adicionar Alunos.
-- [ ] **Portal Aluno:**
-    - [ ] Listar empresas (filtro por ramo/localidade).
-    - [ ] Consultar detalhes do estágio (transportes, responsável, etc.).
-- [ ] **Portal Formador:**
-    - [ ] Registar notas e finalizar estágio (cálculo automático).
+- [x] **Portal Administrador:**
+    - [x] Gerir Estágios (Registar, Editar, Apagar).
+    - [x] Adicionar Alunos.
+- [x] **Portal Aluno:**
+    - [x] Listar empresas (filtro por ramo/localidade).
+    - [x] Consultar detalhes do estágio (transportes, responsável, etc.).
+- [x] **Portal Formador:**
+    - [x] Registar notas e finalizar estágio (cálculo automático).
 
 # Entregas Finais
 
@@ -63,3 +63,4 @@ Esta fase foca-se na eficiência, manuseamento e automação da base de dados, b
 
 - **1. Automatismos:** Rever todos os pontos;
 - **2. Comentarios:** Rever cometários nos códigos sql para não parecer tão AI
+- **3. Exportar BD:** Ao importar a bd para o vosso xamp manter bd com o nome "siestagios2_v1"
