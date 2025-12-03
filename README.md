@@ -1,13 +1,13 @@
-# Projeto de Bases de Dados
+# Database Project
 
-Este repositório contém o trabalho prático da unidade curricular **Bases de Dados**, dividido em duas partes distintas.
+This repository contains the practical assignment for the **Databases** course unit, divided into two distinct parts.
 
 ---
 
-## 📂 Estrutura do Projeto
+## 📂 Project Structure
 
-### 🔸 [Parte 1](./DataBasesProject1)
-Contém a primeira fase do projeto, incluindo a modelação e criação do esquema relacional.
+### 🔸 [Part 1](./DataBasesProject1)
+Contains the first phase of the project, including the modeling and creation of the relational schema.
 
-### 🔸 [Parte 2](./DataBasesProject2)
-Contém a segunda fase do projeto, com implementação em SQL e consultas avançadas.
+### 🔸 [Part 2](./DataBasesProject2)
+Contains the second phase of the project, with SQL implementation and advanced queries.
