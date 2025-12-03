@@ -1,38 +1,36 @@
-<?php include '../db.php'; ?>
-<h3>Registar Novo Aluno</h3>
-<form method="POST">
-    Nome: <input type="text" name="nome" required><br>
-    Login: <input type="text" name="login" required><br>
-    Password: <input type="password" name="pass" required><br>
-    ID Turma: <input type="number" name="turma" required><br>
-    Número Aluno: <input type="number" name="num" required><br><br>
-    <input type="submit" value="Criar Aluno">
-</form>
-<a href="dashboard.php">Voltar</a>
+<?php include '../db.php'; include '../includes/header.php'; ?>
 
-<?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nome = $_POST['nome'];
-    $login = $_POST['login'];
-    $pass = $_POST['pass'];
-    $turma = $_POST['turma'];
-    $num = $_POST['num'];
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="form-container">
+            <h2 class="mb-4 text-uppercase">Novo Aluno</h2>
+            <form method="POST">
+                <div class="mb-3"><label class="fw-bold">Nome Completo</label><input type="text" name="nome" class="form-control" required></div>
+                <div class="mb-3"><label class="fw-bold">Username</label><input type="text" name="login" class="form-control" required></div>
+                <div class="mb-3"><label class="fw-bold">Password</label><input type="password" name="pass" class="form-control" required></div>
+                <div class="row">
+                    <div class="col-md-6 mb-3"><label class="fw-bold">ID Turma</label><input type="number" name="turma" class="form-control" required></div>
+                    <div class="col-md-6 mb-3"><label class="fw-bold">Nº Aluno</label><input type="number" name="num" class="form-control" required></div>
+                </div>
+                <button type="submit" class="btn btn-success w-100 py-2">Criar Aluno</button>
+            </form>
 
-    // 1. Inserir na tabela UTILIZADOR
-    $sql_u = "INSERT INTO utilizador (login, password, nome, tipo) VALUES ('$login', '$pass', '$nome', 'aluno')";
-    
-    if(mysqli_query($conn, $sql_u)) {
-        $last_id = mysqli_insert_id($conn); // Pega o ID criado
-        
-        // 2. Inserir na tabela ALUNO
-        $sql_a = "INSERT INTO aluno (turma_id, utilizador_id, numero) VALUES ($turma, $last_id, $num)";
-        if(mysqli_query($conn, $sql_a)) {
-            echo "<p style='color:green'>Aluno criado com sucesso!</p>";
-        } else {
-            echo "Erro ao criar detalhes do aluno: " . mysqli_error($conn);
-        }
-    } else {
-        echo "Erro ao criar utilizador: " . mysqli_error($conn);
-    }
-}
-?>
+            <?php
+            if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                $nome = $_POST['nome']; $login = $_POST['login'];
+                $pass = $_POST['pass']; $turma = $_POST['turma']; $num = $_POST['num'];
+
+                $sql_u = "INSERT INTO utilizador (login, password, nome, tipo) VALUES ('$login', '$pass', '$nome', 'aluno')";
+                if(mysqli_query($conn, $sql_u)) {
+                    $last_id = mysqli_insert_id($conn);
+                    $sql_a = "INSERT INTO aluno (turma_id, utilizador_id, numero) VALUES ($turma, $last_id, $num)";
+                    if(mysqli_query($conn, $sql_a)) echo "<div class='alert alert-success mt-3'>Aluno registado!</div>";
+                } else {
+                    echo "<div class='alert alert-danger mt-3'>Erro: " . mysqli_error($conn) . "</div>";
+                }
+            }
+            ?>
+        </div>
+    </div>
+</div>
+<?php include '../includes/footer.php'; ?>

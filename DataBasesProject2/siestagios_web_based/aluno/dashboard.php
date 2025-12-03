@@ -1,40 +1,40 @@
-<?php include '../db.php'; 
+<?php 
+include '../db.php'; include '../includes/header.php'; 
 if($_SESSION['tipo'] != 'aluno') header("Location: ../index.php");
 ?>
 
-<h1>Portal do Aluno</h1>
-<h3>Pesquisa de Empresas Disponíveis</h3>
+<div class="row mb-4">
+    <div class="col-md-8"><h1 class="display-6 fw-bold text-uppercase">Pesquisa de Empresas</h1></div>
+    <div class="col-md-4">
+        <form method="GET" class="d-flex">
+            <input type="text" name="local" class="form-control me-2" placeholder="Localidade...">
+            <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</div>
 
-<form method="GET">
-    Filtrar por Localidade: <input type="text" name="local">
-    <input type="submit" value="Filtrar">
-</form>
-
-<table border="1">
-    <tr>
-        <th>Empresa</th>
-        <th>Localidade</th>
-        <th>Telefone</th>
-        <th>Detalhes</th>
-    </tr>
+<div class="row">
     <?php
     $sql = "SELECT * FROM empresa WHERE 1=1";
-    
     if(isset($_GET['local']) && !empty($_GET['local'])) {
         $local = mysqli_real_escape_string($conn, $_GET['local']);
         $sql .= " AND localidade LIKE '%$local%'";
     }
-
     $result = mysqli_query($conn, $sql);
+
     while($row = mysqli_fetch_assoc($result)) {
-        echo "<tr>";
-        echo "<td>" . $row['firma'] . "</td>";
-        echo "<td>" . $row['localidade'] . "</td>";
-        echo "<td>" . $row['telefone'] . "</td>";
-        // Link para a página de detalhes, passando o ID da empresa
-        echo "<td><a href='detalhes_empresa.php?id=".$row['empresa_id']."'>Ver Estágios</a></td>";
-        echo "</tr>";
+        echo '<div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h4 class="card-title fw-bold text-primary">'.$row['firma'].'</h4>
+                        <p class="card-text"><i class="fas fa-map-marker-alt text-danger me-2"></i>'.$row['localidade'].'</p>
+                        <p class="card-text"><i class="fas fa-phone me-2"></i>'.$row['telefone'].'</p>
+                        <a href="detalhes_empresa.php?id='.$row['empresa_id'].'" class="btn btn-primary w-100 mt-3">Ver Detalhes</a>
+                    </div>
+                </div>
+              </div>';
     }
     ?>
-</table>
-<br><a href="../logout.php">Sair</a>
+</div>
+
+<?php include '../includes/footer.php'; ?>
