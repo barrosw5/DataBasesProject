@@ -38,13 +38,19 @@ if($_SESSION['tipo'] != 'administrativo') header("Location: ../index.php");
             while($row = mysqli_fetch_assoc($result)) {
                 $hoje = date('Y-m-d');
                 $ativo = ($row['data_fim'] >= $hoje);
+                
                 echo "<tr>";
                 echo "<td class='fw-bold'>" . $row['nome_aluno'] . "</td>";
                 echo "<td class='text-primary fw-bold'>" . $row['firma'] . "</td>";
                 echo "<td>" . $row['data_inicio'] . " <i class='fas fa-arrow-right mx-1 text-muted'></i> " . $row['data_fim'] . "</td>";
+                
                 if($ativo) {
                     echo "<td><span class='badge bg-success'>DECORRER</span></td>";
-                    echo "<td class='text-end'><a href='apagar.php?id=".$row['aluno_id']."' class='btn btn-sm btn-danger'><i class='fas fa-trash'></i></a></td>";
+                    // Adicionado o botão de Editar (Azul) antes do Apagar
+                    echo "<td class='text-end'>
+                            <a href='editar.php?id=".$row['aluno_id']."' class='btn btn-sm btn-primary me-1' title='Editar'><i class='fas fa-pen'></i></a>
+                            <a href='apagar.php?id=".$row['aluno_id']."' class='btn btn-sm btn-danger' title='Apagar'><i class='fas fa-trash'></i></a>
+                          </td>";
                 } else {
                     echo "<td><span class='badge bg-secondary'>FIM</span></td>";
                     echo "<td class='text-end'><span class='text-muted fw-bold'>BLOQUEADO</span></td>";
