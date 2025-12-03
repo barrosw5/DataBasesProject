@@ -12,7 +12,7 @@ if($_SESSION['tipo'] != 'aluno') header("Location: ../index.php");
             <select name="ramo" class="form-select">
                 <option value="">Todos os Ramos</option>
                 <?php
-                // Buscar ramos à BD para preencher o dropdown
+                // ir buscar os ramos a bd para preencher o select
                 $sql_ramos = "SELECT * FROM ramo_atividade";
                 $res_ramos = mysqli_query($conn, $sql_ramos);
                 while($r = mysqli_fetch_assoc($res_ramos)) {
@@ -21,7 +21,6 @@ if($_SESSION['tipo'] != 'aluno') header("Location: ../index.php");
                 }
                 ?>
             </select>
-            
             <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
         </form>
     </div>
@@ -29,20 +28,20 @@ if($_SESSION['tipo'] != 'aluno') header("Location: ../index.php");
 
 <div class="row">
     <?php
-    // Query base: Junta com a tabela trabalha para saber o ramo
+    // query base com joins para apanhar os ramos
     $sql = "SELECT DISTINCT e.*, r.descricao as nome_ramo 
             FROM empresa e 
             JOIN trabalha t ON e.empresa_id = t.empresa_id
             JOIN ramo_atividade r ON t.ramo_atividade_id = r.ramo_atividade_id
             WHERE 1=1";
 
-    // Filtro Localidade
+    // se escreveu localidade, adicionar filtro
     if(isset($_GET['local']) && !empty($_GET['local'])) {
         $local = mysqli_real_escape_string($conn, $_GET['local']);
         $sql .= " AND e.localidade LIKE '%$local%'";
     }
 
-    // Filtro Ramo
+    // se escolheu ramo, adicionar filtro
     if(isset($_GET['ramo']) && !empty($_GET['ramo'])) {
         $ramo = mysqli_real_escape_string($conn, $_GET['ramo']);
         $sql .= " AND t.ramo_atividade_id = '$ramo'";
@@ -50,6 +49,7 @@ if($_SESSION['tipo'] != 'aluno') header("Location: ../index.php");
 
     $result = mysqli_query($conn, $sql);
 
+    // mostrar cartoes se houver resultados
     if(mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
             echo '<div class="col-md-4 mb-4">
@@ -64,7 +64,7 @@ if($_SESSION['tipo'] != 'aluno') header("Location: ../index.php");
                   </div>';
         }
     } else {
-        echo "<div class='alert alert-warning'>Nenhuma empresa encontrada com esses critérios.</div>";
+        echo "<div class='alert alert-warning'>nenhuma empresa encontrada.</div>";
     }
     ?>
 </div>

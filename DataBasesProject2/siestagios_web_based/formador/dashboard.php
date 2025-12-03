@@ -1,6 +1,7 @@
 <?php 
 include '../db.php'; include '../includes/header.php'; 
 if($_SESSION['tipo'] != 'formador') header("Location: ../index.php");
+// ir buscar o id do formador a sessao
 $id_formador = $_SESSION['user_id'];
 ?>
 
@@ -18,6 +19,7 @@ $id_formador = $_SESSION['user_id'];
         </thead>
         <tbody>
             <?php
+            // filtrar apenas alunos deste formador
             $sql = "SELECT e.aluno_id, u.nome, emp.firma, e.nota_final 
                     FROM estagio e
                     JOIN aluno a ON e.aluno_id = a.utilizador_id

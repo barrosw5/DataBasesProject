@@ -25,11 +25,15 @@
 
             <?php
             if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                // receber os dados do formulario
                 $d_ini = $_POST['d_ini']; $d_fim = $_POST['d_fim'];
                 $aluno = $_POST['id_aluno']; $emp = $_POST['id_empresa'];
                 $estab = $_POST['id_estab']; $form = $_POST['id_form'];
                 
+                // chamar a procedure P1 criada no sql
                 $sql = "CALL P1('$d_ini', '$d_fim', $aluno, $emp, $estab, $form)";
+                
+                // executar e ver se correu bem
                 if(mysqli_query($conn, $sql)) echo "<div class='alert alert-success mt-3'><b>Sucesso!</b> Estágio criado.</div>";
                 else echo "<div class='alert alert-danger mt-3'><b>Erro:</b> " . mysqli_error($conn) . "</div>";
             }

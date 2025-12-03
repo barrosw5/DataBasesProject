@@ -20,9 +20,12 @@
                 $nome = $_POST['nome']; $login = $_POST['login'];
                 $pass = $_POST['pass']; $turma = $_POST['turma']; $num = $_POST['num'];
 
+                // 1. inserir na tabela utilizador primeiro
                 $sql_u = "INSERT INTO utilizador (login, password, nome, tipo) VALUES ('$login', '$pass', '$nome', 'aluno')";
                 if(mysqli_query($conn, $sql_u)) {
+                    // ir buscar o id que acabou de ser criado
                     $last_id = mysqli_insert_id($conn);
+                    // 2. inserir na tabela aluno com esse id
                     $sql_a = "INSERT INTO aluno (turma_id, utilizador_id, numero) VALUES ($turma, $last_id, $num)";
                     if(mysqli_query($conn, $sql_a)) echo "<div class='alert alert-success mt-3'>Aluno registado!</div>";
                 } else {

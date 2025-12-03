@@ -1,6 +1,8 @@
 <?php 
 include '../db.php';
 include '../includes/header.php'; 
+
+// verificar se e mesmo administrativo, senao manda embora
 if($_SESSION['tipo'] != 'administrativo') header("Location: ../index.php");
 ?>
 
@@ -27,15 +29,18 @@ if($_SESSION['tipo'] != 'administrativo') header("Location: ../index.php");
         </thead>
         <tbody>
             <?php
+            // query com joins para ir buscar os nomes reais
             $sql = "SELECT e.*, u.nome as nome_aluno, emp.firma 
                     FROM estagio e 
                     JOIN aluno a ON e.aluno_id = a.utilizador_id
                     JOIN utilizador u ON a.utilizador_id = u.utilizador_id
                     JOIN estabelecimento est ON e.estabelecimento_id = est.estabelecimento_id AND e.estabelecimento_empresa_id = est.empresa_id
                     JOIN empresa emp ON est.empresa_id = emp.empresa_id";
+            
             $result = mysqli_query($conn, $sql);
 
             while($row = mysqli_fetch_assoc($result)) {
+                // ver se o estagio ainda esta a decorrer
                 $hoje = date('Y-m-d');
                 $ativo = ($row['data_fim'] >= $hoje);
                 
@@ -46,7 +51,7 @@ if($_SESSION['tipo'] != 'administrativo') header("Location: ../index.php");
                 
                 if($ativo) {
                     echo "<td><span class='badge bg-success'>DECORRER</span></td>";
-                    // Adicionado o botão de Editar (Azul) antes do Apagar
+                    // botoes de editar e apagar so aparecem se estiver ativo
                     echo "<td class='text-end'>
                             <a href='editar.php?id=".$row['aluno_id']."' class='btn btn-sm btn-primary me-1' title='Editar'><i class='fas fa-pen'></i></a>
                             <a href='apagar.php?id=".$row['aluno_id']."' class='btn btn-sm btn-danger' title='Apagar'><i class='fas fa-trash'></i></a>

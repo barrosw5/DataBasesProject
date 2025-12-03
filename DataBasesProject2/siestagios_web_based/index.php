@@ -2,28 +2,36 @@
 include 'db.php'; 
 $erro = "";
 
+// se o formulario foi submetido
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // limpar o input para evitar sql injection
     $login = mysqli_real_escape_string($conn, $_POST['login']);
     $pass = $_POST['pass'];
 
+    // ver se preencheu tudo
     if(empty($login) || empty($pass)) {
-        $erro = "Preenche todos os campos.";
+        $erro = "tens de preencher os campos todos.";
     } else {
+        // query para ver se o utilizador existe
         $sql = "SELECT utilizador_id, nome, tipo FROM utilizador WHERE login='$login' AND password='$pass'";
         $result = mysqli_query($conn, $sql);
 
+        // se encontrou exatamente uma pessoa
         if (mysqli_num_rows($result) == 1) {
             $row = mysqli_fetch_assoc($result);
+            
+            // guardar os dados na sessao para usar noutras paginas
             $_SESSION['user_id'] = $row['utilizador_id'];
             $_SESSION['nome'] = $row['nome'];
             $_SESSION['tipo'] = $row['tipo'];
 
+            // redirecionar consoante o tipo de utilizador
             if($row['tipo'] == 'administrativo') header("Location: admin/dashboard.php");
             elseif($row['tipo'] == 'aluno') header("Location: aluno/dashboard.php");
             elseif($row['tipo'] == 'formador') header("Location: formador/dashboard.php");
             exit();
         } else {
-            $erro = "Dados incorretos!";
+            $erro = "dados incorretos, tenta outra vez.";
         }
     }
 }
@@ -36,6 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;800&display=swap" rel="stylesheet">
     <style>
+        /* estilo visual inspirado no tema azul */
         :root { --blue-dark: #0a192f; --blue-main: #007bff; --blue-light: #4cc9f0; --white: #ffffff; }
         body { background-color: var(--blue-dark); font-family: 'Kanit', sans-serif; height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .shape { position: absolute; z-index: 0; opacity: 0.8; border: 3px solid var(--blue-dark); }
@@ -53,6 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="login-card">
         <h1 style="font-weight: 800; font-size: 3.5rem; color: var(--blue-dark); line-height: 0.9;">SI<br>Estágios</h1>
         <p style="font-weight: 600; color: var(--blue-main); letter-spacing: 2px; border-bottom: 3px solid var(--blue-dark); padding-bottom: 10px;">// ACESSO AO SISTEMA</p>
+        
         <form method="POST">
             <div class="mb-3">
                 <label class="fw-bold">UTILIZADOR</label>
@@ -64,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             </div>
             <button type="submit" class="btn-login">Entrar ▶</button>
         </form>
+
         <?php if(!empty($erro)): ?><div class="alert-error">❌ <?php echo $erro; ?></div><?php endif; ?>
     </div>
 </body>

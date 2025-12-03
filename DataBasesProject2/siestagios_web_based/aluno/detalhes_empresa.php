@@ -16,6 +16,7 @@ $empresa_id = $_GET['id'];
         </thead>
         <tbody>
             <?php
+            // query para ir buscar tudo detalhado
             $sql = "SELECT est.nome_comercial, est.morada, est.localidade,
                            resp.nome as nome_resp, resp.email,
                            t.meio_transporte, t.linha
@@ -31,11 +32,12 @@ $empresa_id = $_GET['id'];
                     echo "<tr>";
                     echo "<td><b>".$row['nome_comercial']."</b><br><small>".$row['morada'].", ".$row['localidade']."</small></td>";
                     echo "<td>".$row['nome_resp']."<br><small class='text-muted'>".$row['email']."</small></td>";
+                    // mostrar transporte ou n/a se nao existir
                     echo "<td>".($row['meio_transporte'] ? "<span class='badge bg-success'>".$row['meio_transporte']."</span> ".$row['linha'] : "N/A")."</td>";
                     echo "</tr>";
                 }
             } else {
-                echo "<tr><td colspan='3' class='text-center'>Sem informação disponível.</td></tr>";
+                echo "<tr><td colspan='3' class='text-center'>sem informacao.</td></tr>";
             }
             ?>
         </tbody>
