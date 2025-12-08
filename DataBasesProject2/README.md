@@ -64,3 +64,4 @@ This phase focuses on the efficiency, handling, and automation of the database, 
 - **1. Automation:** Review all points;
 - **2. Comments:** Review comments in the SQL code so they do not appear overly AI-generated;
 - **3. Export Database:** When importing the database into your XAMPP, keep the database name as `"siestagios2_v1"`.
+- **4. Make the video they ask for**
