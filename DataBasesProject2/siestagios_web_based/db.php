@@ -2,19 +2,19 @@
 $servername = "localhost";
 $username = "root";
 $password = "";
-$dbname = "siestagios2_v1"; // Nome exato da BD no ficheiro .sql
+$dbname = "siestagios2_v1"; // nome exato da BD no ficheiro .sql
 
-// Criar a ligação
+// criar a ligacao a base de dados
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-// Verificar a ligação
+// verificar se a ligacao falhou
 if (!$conn) {
-    die("Falha na ligação: " . mysqli_connect_error());
+    die("falha na ligacao: " . mysqli_connect_error());
 }
 
-// Suporte para acentos e cedilhas
+// forcar os caracteres especiais para nao dar erro nos acentos
 mysqli_set_charset($conn, "utf8");
 
-// Iniciar sessões em todas as páginas que incluam este ficheiro
+// iniciar a sessao aqui para ficar disponivel em todo o lado
 session_start();
 ?>
