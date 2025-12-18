@@ -1,7 +1,10 @@
 <?php 
-include '../db.php'; include '../includes/header.php'; 
+include '../db.php'; 
+include '../includes/header.php'; 
+
 if($_SESSION['tipo'] != 'formador') header("Location: ../index.php");
-// ir buscar o id do formador a sessao
+
+// ID do formador vindo da sessão
 $id_formador = $_SESSION['user_id'];
 ?>
 
@@ -13,14 +16,14 @@ $id_formador = $_SESSION['user_id'];
             <tr>
                 <th>Aluno</th>
                 <th>Empresa</th>
-                <th>Nota Final</th>
+                <th>Nota (0-20) / Classif. (1-5)</th>
                 <th>Ação</th>
             </tr>
         </thead>
         <tbody>
             <?php
-            // filtrar apenas alunos deste formador
-            $sql = "SELECT e.aluno_id, u.nome, emp.firma, e.nota_final 
+            // Query atualizada para incluir o campo e.classificacao
+            $sql = "SELECT e.aluno_id, u.nome, emp.firma, e.nota_final, e.classificacao 
                     FROM estagio e
                     JOIN aluno a ON e.aluno_id = a.utilizador_id
                     JOIN utilizador u ON a.utilizador_id = u.utilizador_id
@@ -33,7 +36,17 @@ $id_formador = $_SESSION['user_id'];
                 echo "<tr>";
                 echo "<td class='fw-bold'>".$row['nome']."</td>";
                 echo "<td>".$row['firma']."</td>";
-                echo "<td>".($row['nota_final'] ? "<span class='badge bg-success text-dark fs-6'>".$row['nota_final']."</span>" : "<span class='badge bg-secondary'>Pendente</span>")."</td>";
+                
+                echo "<td>";
+                if($row['nota_final']) {
+                    // Exibe a nota de 0-20 e a classificação de 1-5
+                    echo "<span class='badge bg-success text-dark fs-6'>".$row['nota_final']."</span>";
+                    echo " <span class='badge bg-dark ms-2'>Classif: ".$row['classificacao']."</span>";
+                } else {
+                    echo "<span class='badge bg-secondary'>Pendente</span>";
+                }
+                echo "</td>";
+                
                 echo "<td><a href='avaliar.php?id=".$row['aluno_id']."' class='btn btn-primary btn-sm'>Avaliar</a></td>";
                 echo "</tr>";
             }
