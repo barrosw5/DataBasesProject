@@ -47,10 +47,10 @@ This phase focuses on the efficiency, handling, and automation of the database, 
 
 # Final Deliverables
 
-- [ ] P-P2 Report (.pdf/.doc)
-- [ ] Database Backup with automation (.sql)
-- [ ] Web Prototype (.zip or .rar)
-- [ ] Presentation Video (.mp4)
+- [x] P-P2 Report (.pdf/.doc)
+- [x] Database Backup with automation (.sql)
+- [x] Web Prototype (.zip or .rar)
+- [x] Presentation Video (.mp4)
 
 # Important Notes
 
