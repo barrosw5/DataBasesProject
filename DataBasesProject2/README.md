@@ -1,66 +1,104 @@
-# DataBasesProject2
-Part 2 of the Database Project – Internship Management (2025–2026)
+# 🎓 SI Estágios - Internship Management System (Phase 2)
 
-This phase focuses on the efficiency, handling, and automation of the database, as well as on the creation of a web-based prototype.
+![Project Status](https://img.shields.io/badge/Status-Completed-success)
+![Version](https://img.shields.io/badge/Version-2.0-blue)
+![Tech](https://img.shields.io/badge/PHP-8.2-purple)
+![DB](https://img.shields.io/badge/MySQL-MariaDB-orange)
 
-> **IMPORTANT NOTE:** For this part, the database (relational model) provided by the teaching staff must be used, and not the version developed in Part 1.
+**SI Estágios** is a comprehensive Internship Management System developed as part of the Database Project (2025–2026). This phase focuses on database efficiency, automation (SQL), and the implementation of a functional web prototype for three distinct user profiles: Administrators, Students, and Supervisors.
 
-# Useful Links
+---
 
-- **P2 Report:** https://docs.google.com/document/d/1Q9nS9DfwMJb0WWhF4Dng6ZDCNCBWoLNkoY9ikWcK8sU/edit?usp=sharing
+## 🚀 Features
 
-# Development Checklist
+### 💻 Web Portal (PHP/HTML)
+The web interface is divided into three distinct access portals:
 
-### 1. Automation (SQL)
-*Triggers (T), Stored Procedures (P), and Functions (F)*
+* **🛡️ Administrator Portal**
+    * Full CRUD management of Internships (Create, Edit, Delete).
+    * Student registration and management.
+    * System overview dashboard.
+* **🎓 Student Portal**
+    * Browse available companies (filtered by sector/location).
+    * View detailed internship information (transportation, supervisors, etc.).
+* **📋 Supervisor (Formador) Portal**
+    * Grade registration.
+    * Automatic calculation of final internship grades based on weighted averages.
 
-- [x] **T1:** Validate Intern Evaluation (1 to 5).
-- [x] **T2:** Validate that `start_date` < `end_date`.
-- [x] **P1:** Register internship (verify existence of: student, company, supervisor).
-- [x] **P2:** List internships that start in X days.
-- [x] **F1:** Function to calculate the average evaluations of a company per academic year.
-- [x] **F2:** Function to calculate the weighted average of the final internship grade.
+### 🗄️ Database Automation (SQL)
+The backend utilizes advanced SQL features to ensure data integrity and automate logic:
 
-### 2. Data Queries (SQL)
-*Queries (Q) and Views (V)*
+| Type | ID | Description |
+| :--- | :--- | :--- |
+| **Trigger** | `T1` | Validates that evaluation scores are within range (1-5). |
+| **Trigger** | `T2` | Ensures internship `start_date` is strictly before `end_date`. |
+| **Procedure** | `P1` | Registers new internships with validation checks (Student/Company/Supervisor existence). |
+| **Procedure** | `P2` | Generates lists of internships starting within `X` days. |
+| **Function** | `F1` | Calculates average company evaluations per academic year. |
+| **Function** | `F2` | Computes the weighted average for the final internship grade. |
 
-- [x] **Q1:** Supervisors and total number of supervised internships (>1).
-- [x] **Q2:** Companies and average assigned grades (>=14).
-- [x] **Q3:** Companies and total number of marketed products (at least 1).
-- [x] **Q4:** Companies and total number of internships (at least 1).
-- [x] **Q5:** Courses with number of classes above the overall average.
-- [x] **Q6:** Supervisors “above average” (individual vs global comparison).
-- [x] **V1:** View with internship details per supervisor and averages.
-- [x] **V2:** View with average final grades per company and course.
+---
 
-### 3. Web-Based System (PHP/HTML)
-*Three distinct portals*
+## 🛠️ Tech Stack
 
-- [x] **Administrator Portal:**
-    - [x] Manage Internships (Create, Edit, Delete).
-    - [x] Add Students.
-- [x] **Student Portal:**
-    - [x] List companies (filter by sector/location).
-    - [x] View internship details (transport, supervisor, etc.).
-- [x] **Supervisor Portal:**
-    - [x] Register grades and finalize internship (automatic calculation).
+* **Frontend:** HTML5, CSS3, Bootstrap 5 (Custom "Blue-Dark" Theme).
+* **Backend:** PHP 8.2.
+* **Database:** MySQL / MariaDB (Relational Model).
+* **Environment:** XAMPP (Apache Server).
 
-# Final Deliverables
+---
 
-- [x] P-P2 Report (.pdf/.doc)
-- [x] Database Backup with automation (.sql)
-- [x] Web Prototype (.zip or .rar)
-- [x] Presentation Video (.mp4)
+## ⚙️ Installation & Setup
 
-# Important Notes
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/yourusername/si-estagios.git](https://github.com/yourusername/si-estagios.git)
+    ```
 
-- **Database:** Strictly use the model provided by the lecturers.
-- **Backups:** Always work with the current file and regularly compress it into a zip with the version name.
-- **DO NOT DELETE BACKUPS:** Always store them in the archive folder.
-- **Minimum Grade:** The overall average (P1 + P2) must be >= 8.
+2.  **Database Configuration**
+    * Open **XAMPP** (or your preferred local server) and start **Apache** and **MySQL**.
+    * Open phpMyAdmin (`http://localhost/phpmyadmin`).
+    * Create a new database named: `siestagios2_v1`
+    * Import the provided SQL file: `initialDB.sql` (or the latest backup `.sql` file).
 
-# Final To-Do List
+3.  **Project Deployment**
+    * Move the project folder to your server's root directory (e.g., `C:/xampp/htdocs/siestagios`).
+    * Ensure `db.php` is correctly configured:
+        ```php
+        $servername = "localhost";
+        $username = "root";
+        $password = "";
+        $dbname = "siestagios2_v1";
+        ```
 
-- **1. Automation:** Review all points;
-- **2. Comments:** Review comments in the SQL code so they do not appear overly AI-generated;
-- **3. Export Database:** When importing the database into your XAMPP, keep the database name as `"siestagios2_v1"`.
+4.  **Launch**
+    * Open your browser and navigate to: `http://localhost/siestagios/siestagios_web_based/`
+
+---
+
+## 🔐 Demo Credentials
+
+Use the following accounts (from `initialDB.sql`) to test the different user roles:
+
+| Role | Username | Password |
+| :--- | :--- | :--- |
+| **Student** | `joao.silva` | `pass123` |
+| **Supervisor** | `ana.mendes` | `pass123` |
+| **Admin** | `helena.alves` | `pass123` |
+
+---
+
+## 📂 Project Structure
+
+```text
+DataBasesProject2/
+├── 📂 BDVersions/             # SQL Backups and Versioning
+├── 📂 siestagios_web_based/   # Web Application Source Code
+│   ├── 📂 admin/              # Administrator pages
+│   ├── 📂 aluno/              # Student pages
+│   ├── 📂 formador/           # Supervisor pages
+│   ├── 📂 includes/           # Header/Footer partials
+│   ├── 📄 db.php              # Database connection
+│   └── 📄 index.php           # Login Portal
+├── 📄 initialDB.sql           # Initial Database Dump
+└── 📄 README.md               # Documentation
